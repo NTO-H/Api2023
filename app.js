@@ -13,6 +13,7 @@ import path from 'path';
 import { productRouter } from './src/routes/products.js';
 import cookieParser from 'cookie-parser';
 import { deviceRouter } from './src/routes/device.js';
+import { bitacoraRouter } from './src/routes/bitacora.js';
 
 export const __dirname = import.meta.dirname;
 dotenv.config();
@@ -57,6 +58,7 @@ app.use('/admin', verificarTokenAdmin);
 app.use('/recovery', verificarToken, recuperacionRouter);
 app.use('/images', imagesRouter);
 app.use('/devices', deviceRouter);
+app.use('/getBitacora', bitacoraRouter);
 
 // Middleware de manejo de errores
 app.use((err, req, res, next) => {
